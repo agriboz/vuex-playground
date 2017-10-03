@@ -1,32 +1,17 @@
 <template>
 
   <section class="column main">
-
     <h4 class="is-size-4">Avans Taleplerim</h4>
     <hr />
-          <!-- <div class="control has-icons-left">
-            <div class="select">
-              <select v-model="deneme">
-                <option :key="i.id" :value="i.name" v-for="i in item">{{i.name}}</option>
-
-              </select>
-            </div>
-            <span class="icon is-left">
-              <i class="fa fa-envelope"></i>
-            </span>
-          </div> -->
-
-
-
   <nav class="level is-pulled-right">
    <div class="level-right">
       <p class="level-item">
-        <a
+        <a  @click="showAddAdvanceModal"
             class="button is-info">Yeni Avans Ekle</a></p>
     </div>
   </nav>
 
-  <b-table :data="advance"
+  <b-table :data="$store.state.advance"
            :bordered="true"
            :selected.sync="selected"
            :striped="true"
@@ -67,18 +52,25 @@
   <b-modal :active.sync="$store.state.modal" has-modal-card>
     <detail></detail>
   </b-modal>
-  </section>
+
+
+  <b-modal :active.sync="$store.state.isAddAdvanceModalActive" has-modal-card>
+    <add></add>
+  </b-modal>
+</section>
 
 </template>
 
 
 <script>
 import detail from '@/components/advance/detail'
+import add from '@/components/advance/add'
 
 export default {
 
   components: {
-    detail
+    detail,
+    add
   },
   data () {
     return {
@@ -90,13 +82,20 @@ export default {
       isComponentModalActive: false
     }
   },
+
   methods: {
+    showAddAdvanceModal () {
+      this.$store.dispatch('addAdvanceModalActive')
+    },
+
     showModal () {
       this.$store.dispatch('showModal')
     }
   },
+  mounted () {
+    this.$store.dispatch('advanceInit')
+  },
   computed: {
-
     selected: {
       get () {
         return this.$store.state.selected
@@ -105,7 +104,6 @@ export default {
         this.$store.commit('initSelected', value)
       }
     }
-  },
-  props: ['advance']
+  }
 }
 </script>

@@ -10,14 +10,23 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "database": "json-server -p 8080 --watch db.json",
+    "test": "jest"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
+    "avoriaz": "^6.0.0",
     "axios": "^0.16.2",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-es2015": "^6.24.1",
     "buefy": "^0.5.2",
     "bulma": "^0.5.1",
     "faker": "^4.1.0",
     "fontawesome": "^4.7.2",
+    "jest": "^21.2.1",
+    "jest-vue-preprocessor": "^1.2.0",
     "nuxt": "^1.0.0-rc8"
   },
   "devDependencies": {
@@ -30,7 +39,28 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "jest-vue": "^0.7.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+        ["transform-object-rest-spread"]
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
+    },
+    "mapCoverage": true
   }
 }

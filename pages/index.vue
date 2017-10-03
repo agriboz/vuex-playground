@@ -2,8 +2,8 @@
 <div class="container is-fluid">
   <div class="columns">
 
-    <sidebar />
-    <generalDescription :advance="advance" :item="companies" />
+    <sidebar :class="[{['active fadeOutLeft']: $store.state.openMenu}, 'fadeInLeft']" />
+    <generalDescription :class="[{['animated slideInRight active-main']: $store.state.openMenu}]" />
   </div>
 </div>
 </template>
@@ -13,17 +13,17 @@ import {mapState} from 'vuex'
 
 import generalDescription from '~/components/general-description'
 import sidebar from '~/components/sidebar'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   async fetch ({store}) {
-    const response = await axios.get('http://localhost:8080/advance')
-    store.commit('initAdvance', response.data)
+  //  const response = await axios.get('http://localhost:8080/advance')
+  //  store.commit('initAdvance', response.data)
   },
+
   computed: {
     ...mapState({
-      advance: state => state.advance,
-      companies: state => state.companies
+      openMenu: state => state.openMenu
     })
   },
   components: {
@@ -32,3 +32,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .active {
+    position: absolute
+  }
+  .active-main {
+    margin-left: 0
+  }
+</style>

@@ -15,6 +15,7 @@ module.exports = {
     ]
   },
   css: [
+    'animate.css/animate.min.css',
     'bulma/css/bulma.css',
     '@assets/css/main.scss'
   ],

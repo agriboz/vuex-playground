@@ -1,8 +1,12 @@
 import axios from 'axios'
 
 export const state = () => ({
+  openMenu: false,
   advance: [],
+  newAdvance: {},
   selected: {},
+  isAddAdvanceModalActive: false,
+  isEditAdvanceModalActive: false,
   modal: false,
   updateSelected: {},
   menu: [
@@ -40,6 +44,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  openMenu (state) {
+    state.openMenu = !state.openMenu
+  },
   initMenu (state, menu) {
     state.menu = menu
   },
@@ -54,6 +61,14 @@ export const mutations = {
     Object.assign(state.updateSelected, field)
   },
 
+  addAdvanceModalActive (state) {
+    state.isAddAdvanceModalActive = true
+  },
+
+  addAdvanceModalPassive (state) {
+    state.isAddAdvanceModalActive = false
+  },
+
   showModal (state, modal) {
     state.modal = true
   },
@@ -62,8 +77,13 @@ export const mutations = {
     state.modal = false
   },
 
-  addAdvance (state, advance) {
-    state.advance = [...state.advance, advance]
+  getAdvance (state, newAdvance) {
+    Object.assign(state.newAdvance, newAdvance)
+  },
+
+  addAdvance (state, newAdvance) {
+    console.log(newAdvance)
+    state.advance = [...state.advance, newAdvance]
   },
 
   editSelected (state, selected) {
@@ -74,14 +94,30 @@ export const mutations = {
   removeSelected (state, selected) {
     state.advance = state.advance.filter(a => a.id !== selected.id)
   }
+}
+
+export const getters = {
 
 }
 
 export const actions = {
-  async addAdvance ({ commit }, payload) {
-    const { data } = await axios.post('http://localhost:8080', payload)
+  async advanceInit ({ commit }) {
+    const { data } = await axios.get('http://localhost:8080/advance')
+    console.log(data)
+    commit('initAdvance', data)
+  },
+  openMenu ({ commit }) {
+    commit('openMenu')
+  },
+  async addAdvance ({ commit, state }, newAdvance) {
+    const {data} = await axios.post('http://localhost:8080/advance', newAdvance)
     commit('addAdvance', data)
-  }
+    commit('addAdvanceModalPassive')
+  },
+
+  getAdvance ({ commit }) {
+    commit('getAdvance')
+  },
 
   updateAdvance ({ commit, state }, payload) {
     commit('editSelected', payload)
@@ -94,6 +130,14 @@ export const actions = {
     await axios.delete(`http://localhost:8080/advance/${payload.id}`)
     commit('removeSelected', payload)
     commit('hideModal')
+  },
+
+  addAdvanceModalActive ({ commit }) {
+    commit('addAdvanceModalActive')
+  },
+
+  addAdvanceModalPassive ({ commit }) {
+    commit('addAdvanceModalPassive')
   },
 
   showModal ({ commit }) {

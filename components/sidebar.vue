@@ -1,9 +1,8 @@
 <template>
-
-  <div class="column is-2 sidebar">
+  <div class="column is-2 sidebar animated">
     <div class="has-text-centered">
         <img class="is-128x128" src="http://bulma.io/images/placeholders/128x128.png">
-        <p class="is-size-5">John Doe </p>
+        <p class="is-size-5">John Doe</p>
         <p class="is-size-6">Ücretlendirme ve Yan Haklar</p>
     </div>
     <hr />
