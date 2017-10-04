@@ -1,4 +1,5 @@
 module.exports = {
+  modules: ['@nuxtjs/bulma'],
   /*
   ** Headers of the page
   */
@@ -11,14 +12,14 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' }
+      {
+        rel: 'stylesheet',
+        href:
+          'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+      }
     ]
   },
-  css: [
-    'animate.css/animate.min.css',
-    'bulma/css/bulma.css',
-    '@assets/css/main.scss'
-  ],
+  css: ['animate.css/animate.min.css', '@assets/css/main.scss'],
   /*
   ** Customize the progress-bar color
   */

@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@nuxtjs/bulma@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/bulma/-/bulma-1.0.3.tgz#46f6bdf26ea05f9fa50879deabbeb823b05f62f4"
+  dependencies:
+    bulma "^0.5.1"
+
 "@nuxtjs/youch@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@nuxtjs/youch/-/youch-3.0.2.tgz#03fff829ca45bd1c3ece84c08270f9686229dd4a"
@@ -1106,11 +1112,11 @@ bser@^2.0.0:
   dependencies:
     node-int64 "^0.4.0"
 
-buefy@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/buefy/-/buefy-0.5.2.tgz#142c994bb44cfd13d7aa8650b38a7241f4199674"
+buefy@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/buefy/-/buefy-0.5.3.tgz#50aa2243a6ac46c66327191a48d91cfb70a68658"
   dependencies:
-    bulma "^0.5.1"
+    bulma "^0.5.3"
     vue "^2.4.2"
 
 buffer-xor@^1.0.3:
@@ -1133,7 +1139,7 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-bulma@^0.5.1:
+bulma@^0.5.1, bulma@^0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.5.3.tgz#be93afb6246192505c30df3f9c1c29a97d319a13"
 

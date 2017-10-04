@@ -40,7 +40,7 @@
       "first_name": "Kids Steel Tunisia",
       "date": "2017-09-21T10:22:15.044Z",
       "percent": true,
-      "amount": 840
+      "amount": "844"
     },
     {
       "id": 8,
@@ -62,20 +62,6 @@
       "date": "2017-09-21T07:35:41.025Z",
       "percent": true,
       "amount": "774222"
-    },
-    {
-      "id": 11,
-      "first_name": "invoice integrated leading edge",
-      "date": "2017-09-20T22:27:31.940Z",
-      "percent": true,
-      "amount": 6
-    },
-    {
-      "id": 12,
-      "first_name": "JSON Cambridgeshire Legacy",
-      "date": "2017-09-21T04:41:59.074Z",
-      "percent": true,
-      "amount": 312
     },
     {
       "id": 13,
@@ -473,6 +459,20 @@
       "percent": true,
       "amount": "333",
       "id": 82
+    },
+    {
+      "percent": true,
+      "amount": "52320",
+      "id": 83
+    },
+    {
+      "percent": true,
+      "amount": "",
+      "id": 84
+    },
+    {
+      "amount": "23423",
+      "id": 85
     }
   ]
 }

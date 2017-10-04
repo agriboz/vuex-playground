@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {api} from '../common/api'
 
 export const state = () => ({
   openMenu: false,
@@ -102,15 +102,14 @@ export const getters = {
 
 export const actions = {
   async advanceInit ({ commit }) {
-    const { data } = await axios.get('http://localhost:8080/advance')
-    console.log(data)
+    const { data } = await api.get('advance')
     commit('initAdvance', data)
   },
   openMenu ({ commit }) {
     commit('openMenu')
   },
   async addAdvance ({ commit, state }, newAdvance) {
-    const {data} = await axios.post('http://localhost:8080/advance', newAdvance)
+    const {data} = await api.post('advance', newAdvance)
     commit('addAdvance', data)
     commit('addAdvanceModalPassive')
   },
@@ -121,13 +120,13 @@ export const actions = {
 
   updateAdvance ({ commit, state }, payload) {
     commit('editSelected', payload)
-    axios.put(`http://localhost:8080/advance/${payload.id}`, payload)
+    api.put(`http://localhost:8080/advance/${payload.id}`, payload)
 
     commit('hideModal')
   },
 
   async deleteAdvance ({ commit }, payload) {
-    await axios.delete(`http://localhost:8080/advance/${payload.id}`)
+    await api.delete(`http://localhost:8080/advance/${payload.id}`)
     commit('removeSelected', payload)
     commit('hideModal')
   },
