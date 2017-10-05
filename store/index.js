@@ -1,4 +1,4 @@
-import {api} from '../common/api'
+import { api } from '../common/api'
 
 export const state = () => ({
   openMenu: false,
@@ -96,9 +96,7 @@ export const mutations = {
   }
 }
 
-export const getters = {
-
-}
+export const getters = {}
 
 export const actions = {
   async advanceInit ({ commit }) {
@@ -109,7 +107,7 @@ export const actions = {
     commit('openMenu')
   },
   async addAdvance ({ commit, state }, newAdvance) {
-    const {data} = await api.post('advance', newAdvance)
+    const { data } = await api.post('advance', newAdvance)
     commit('addAdvance', data)
     commit('addAdvanceModalPassive')
   },
