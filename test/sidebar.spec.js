@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { shallow } from 'avoriaz'
-
+import {state} from '../store'
 import Sidebar from '../components/sidebar'
 
 Vue.use(Vuex)
@@ -25,5 +25,9 @@ describe('Sidebar', () => {
 
     const msg = 'John Doe'
     expect(wrapper.find('.is-size-5')[0].text()).toBe(msg)
+  })
+
+  test('Sidebar `menu` list store', () => {
+    expect(state().menu.length).toEqual(5)
   })
 })

@@ -1,12 +1,12 @@
 <template>
 <div class="container is-fluid">
   <div class="columns">
-
     <sidebar :class="[{['active fadeOutLeft']: $store.state.openMenu}, 'fadeInLeft']" />
     <generalDescription :class="[{['animated slideInRight active-main']: $store.state.openMenu}]" />
   </div>
 </div>
 </template>
+
 
 <script>
 import {mapState} from 'vuex'

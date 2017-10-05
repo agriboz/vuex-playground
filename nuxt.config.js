@@ -1,8 +1,8 @@
 module.exports = {
-  modules: ['@nuxtjs/bulma'],
   /*
   ** Headers of the page
   */
+  plugins: ['~plugins/buefy.js'],
   head: {
     title: 'lets-vue',
     meta: [
@@ -10,16 +10,10 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  css: ['animate.css/animate.min.css', '@assets/css/main.scss'],
+  modules: ['@nuxtjs/bulma', '@nuxtjs/font-awesome', '@nuxtjs/pwa'],
+  css: ['animate.css/animate.min.css', '@assets/main.css'],
   /*
   ** Customize the progress-bar color
   */
@@ -27,7 +21,6 @@ module.exports = {
   router: {
     linkActiveClass: 'is-active'
   },
-  plugins: ['~plugins/buefy'],
   /*
   ** Build configuration
   */

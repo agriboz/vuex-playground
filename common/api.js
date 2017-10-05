@@ -2,7 +2,9 @@ import Vue from 'vue'
 import axios from 'axios'
 import Buefy from 'buefy'
 
-Vue.use(Buefy)
+Vue.use(Buefy, {
+  defaultIconPack: 'fa'
+})
 
 let LoadingInstance
 const Toast = Vue.prototype.$toast

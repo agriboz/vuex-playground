@@ -5,7 +5,7 @@
       "first_name": "synthesizing User-centric invoice",
       "date": "2017-09-20T16:32:20.643Z",
       "percent": true,
-      "amount": "3044"
+      "amount": "304444"
     },
     {
       "id": 3,
@@ -473,6 +473,11 @@
     {
       "amount": "23423",
       "id": 85
+    },
+    {
+      "percent": true,
+      "amount": "433",
+      "id": 86
     }
   ]
 }
