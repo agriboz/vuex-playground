@@ -48,7 +48,7 @@ describe('Navigation', () => {
 
   test('editAdvance', () => {
     const updateSelected = $store.state.updateSelected
-    console.log(updateSelected)
+
     const mockEntry = {
       id: 1,
       name: 'hey',
@@ -58,6 +58,28 @@ describe('Navigation', () => {
     $store.commit('editAdvance', mockEntry)
 
     expect(updateSelected).toEqual(mockEntry)
+  })
+
+  test('add Advance', () => {
+    $store.state.advance = [
+      { id: 1, name: 'hey', amount: 2, date: '12/12/2017' },
+      { id: 2, name: 'yeh', amount: 3, date: '12/13/2017' }
+    ]
+
+    const expectedState = [
+      { id: 1, name: 'hey', amount: 2, date: '12/12/2017' },
+      { id: 2, name: 'yeh', amount: 3, date: '12/13/2017' },
+      { id: 3, name: 'hey', amount: 4, date: '12/12/2017' }
+    ]
+
+    $store.commit('addAdvance', {
+      id: 3,
+      name: 'hey',
+      amount: 4,
+      date: '12/12/2017'
+    })
+
+    expect($store.state.advance).toEqual(expectedState)
   })
 
   test('show modal', () => {
